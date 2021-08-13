@@ -4,6 +4,7 @@ class AquariumPlantGuide::CLI
         puts "welcome to the Aquarium Plant Guide"
         list_plants
         list_options
+        exit_program
     end
 
     def list_plants
@@ -12,15 +13,27 @@ class AquariumPlantGuide::CLI
     end
 
     def list_options
-    puts "Enter the number of the plant you would like more info on or type exit"
-        if input != 0
+       while true
+            puts "Enter the number of the plant you would like more info on, or type list to display plant list again, or type exit"
             input = gets.strip
-        elsif "1"
-            puts "More info on Red Dwarf Aquarium Lily..."
-        elsif "2"
-            puts "More info on Anubias nana petite..."
-        else
-            puts "I am not sure what you are looking for."
+                    
+            if input == "1"
+                puts "More info on Red Dwarf Aquarium Lily..."
+            elsif input == "2"
+                puts "More info on Anubias nana petite..."
+            elsif input == "list"
+                list_plants
+            elsif input == "exit"
+                exit_program
+            else
+                puts "I am not sure what you are looking for."
+            end
         end
     end
+
+    def exit_program
+        puts "Good-bye"
+        exit
+    end
+
 end

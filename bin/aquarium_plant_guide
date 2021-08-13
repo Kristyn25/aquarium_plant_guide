@@ -3,5 +3,3 @@
 require './lib/aquarium_plant_guide'
 
 AquariumPlantGuide::CLI.new.start
-
-#puts "hello"
