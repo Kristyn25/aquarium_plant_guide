@@ -1,5 +1,9 @@
+require 'nokogiri'
+
 class AquariumPlantGuide::CLI
     
+    Base_Path = "https://www.aquariumcoop.com/collections/live-plants"
+
     def start
         puts "welcome to the Aquarium Plant Guide"
         list_plants
