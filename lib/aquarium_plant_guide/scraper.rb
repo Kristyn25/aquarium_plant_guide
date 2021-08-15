@@ -6,7 +6,15 @@ class Scraper
 
     @@all = []
 
-    def self.scrape_list_page
+    def self.scrape_list_page(list_url)
         plants = []
-        html = Nokogiri::html
-        
+        html = Nokogiri::html(open(list_url))
+        html.css("div.grid-view-item product-card").each do |plant|
+            plants << {
+                name: plant.css("span.visually-hidden").text
+            }
+        end
+    end
+    plants
+end
+
