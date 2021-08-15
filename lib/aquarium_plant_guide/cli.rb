@@ -26,7 +26,7 @@ class AquariumPlantGuide::CLI
             elsif input == "exit"
                 exit_program
             else
-                puts "I am not sure what you are looking for."
+                 puts "I am not sure what you are looking for."
             end
         end
     end
