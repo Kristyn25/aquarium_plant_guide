@@ -1,7 +1,8 @@
+require_relative "../lib/aquarium_plant_guide/scraper.rb"
+require_relative "../lib/aquarium_plant_guide/plant.rb"
 require 'nokogiri'
 
 class AquariumPlantGuide::CLI
-    
     Base_Path = "https://www.aquariumcoop.com/collections/live-plants"
 
     def start
@@ -12,8 +13,10 @@ class AquariumPlantGuide::CLI
     end
 
     def list_plants
-        puts "1. Red Dwarf Aquarium Lily"
-        puts "2. Anubias nana petite"
+        plants_array = Scraper.scrape_list_page(Base_Path + 'list.html')
+        Plant.create_from_list(plants_array)
+        #puts "1."
+        #puts "2. Anubias nana petite"
     end
 
     def list_options

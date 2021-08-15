@@ -4,9 +4,16 @@ class Plant
 
     @@all = []
 
-    def initialize(name)
-        @name = name
+    def initialize(plant_hash)
+        @name = plant_hash[:name]
+        plant_hash = self
         @@all << self
+    end
+
+    def self.create_from_list(plants_array)
+        plants_array.each do |plant|
+            plant = self.new(plant)
+        end
     end
 
     def self.all

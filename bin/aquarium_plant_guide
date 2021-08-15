@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require './lib/aquarium_plant_guide'
+require "../lib/aquarium_plant_guide/cli.rb"
 
 AquariumPlantGuide::CLI.new.start
