@@ -12,7 +12,7 @@ class Scraper
         list_url = "https://www.aquariumcoop.com/collections/live-plants"
         html = open(list_url)
         doc = Nokogiri::HTML(html)
-        doc.css("div.grid-view-item").each do |plant|
+        doc.css("div#Collection").css("div.grid-view-item").each do |plant|
             plants << {
                 name: plant.css("span.visually-hidden")[0].text,
                 product_url: plant.css("a").attribute("href").value
@@ -25,9 +25,11 @@ class Scraper
         plant_page = {}
         html = open(product_url)
         page = Nokogiri::HTML(html)
-        page.css("div.second_description").each do |plant|
+        product_page = page.css("div.product-template__container page-width").each do |plant|
             plant_page << {
-                description: plant_page.css("p").text.strip
+                quick_info: plant_page.css("div.first_description").css("ul").text,
+                description: plant_page.css("div.second_description").css("p").text.strip,
+                rating: plant_page.css("div.product-single__meta").css("div.jdgm-prev-badge").attribute("data-average-rating").value
             }
         end
         plant_page

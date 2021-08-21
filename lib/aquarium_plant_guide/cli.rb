@@ -35,7 +35,9 @@ class CLI #AquariumPlantGuide::CLI
                     
             if input.to_i != 0
                 Plant.all.each do |plant|
+                    puts "#{plant.quick_info}"
                     puts "#{plant.description}"
+                    puts "#{plant.rating}"
                 end
             elsif input == "list"
                 list_plants

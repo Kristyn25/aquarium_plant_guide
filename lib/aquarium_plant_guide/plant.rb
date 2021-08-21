@@ -1,6 +1,6 @@
 class Plant
 
-    attr_accessor :name, :description
+    attr_accessor :name, :product_url, :description, :quick_info, :rating
 
     @@all = []
 
@@ -17,7 +17,9 @@ class Plant
     end
 
     def plant_attributes(plant_page_hash)
+        @quick_info = plant_page_hash[:quick_info]
         @description = plant_page_hash[:description]
+        @rating = plant_page_hash[:rating]
     end
 
     def self.all
