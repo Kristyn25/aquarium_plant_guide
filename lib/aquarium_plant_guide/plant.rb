@@ -1,6 +1,6 @@
 class Plant
 
-    attr_accessor :name
+    attr_accessor :name, :description
 
     @@all = []
 
@@ -14,6 +14,10 @@ class Plant
         plants_array.each do |plant|
             plant = self.new(plant)
         end
+    end
+
+    def plant_attributes(plant_page_hash)
+        @description = plant_page_hash[:description]
     end
 
     def self.all
