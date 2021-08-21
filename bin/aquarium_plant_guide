@@ -2,4 +2,4 @@
 
 require "../lib/aquarium_plant_guide/cli.rb"
 
-AquariumPlantGuide::CLI.new.start
+CLI.new.start
