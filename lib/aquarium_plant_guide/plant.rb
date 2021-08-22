@@ -6,6 +6,7 @@ class Plant
 
     def initialize(plant_hash)
         @name = plant_hash[:name]
+        @product_url = plant_hash[:product_url]
         plant_hash = self
         @@all << self
     end
@@ -16,10 +17,10 @@ class Plant
         end
     end
 
-    def plant_attributes(plant_page_hash)
-        @quick_info = plant_page_hash[:quick_info]
-        @description = plant_page_hash[:description]
-        @rating = plant_page_hash[:rating]
+    def add_plant_attributes(plant_attributes_hash)
+        @quick_info = plant_attributes_hash[:quick_info]
+        @description = plant_attributes_hash[:description]
+        @rating = plant_attributes_hash[:rating]
     end
 
     def self.all
