@@ -10,6 +10,7 @@ class CLI #AquariumPlantGuide::CLI
         list_plants
         plant_attributes
         list_options
+        display_plant_info
         exit_program
     end
 
@@ -24,9 +25,17 @@ class CLI #AquariumPlantGuide::CLI
     def plant_attributes
         Plant.all.each do |plant|
             attributes = Scraper.scrape_list_page(Base_Path + plant.product_url)
-            plant.add_plant_attributes(attributes)
+            plant.plant_attributes(attributes)
         end
     end
+
+    def display_plant_info
+        Plant.all.each do |plant|
+            puts "Quick Info:" + "#{plant.quick_info}"
+            puts "Description:" + "#{plant.description}"
+            puts "Rating:" + "#{plant.rating}"
+        end
+    end 
 
     def list_options
        while true
@@ -34,11 +43,12 @@ class CLI #AquariumPlantGuide::CLI
             input = gets.strip
                     
             if input.to_i != 0
-                Plant.each do |plant|
-                    puts "Quick Info:" + "#{plant.quick_info}"
-                    puts "Description:" + "#{plant.description}"
-                    puts "Rating:" + "#{plant.rating}"
-                end
+                display_plant_info
+                #Plant.all.each do |plant|
+                    #puts "Quick Info:" + "#{plant.quick_info}"
+                    #puts "Description:" + "#{plant.description}"
+                    #puts "Rating:" + "#{plant.rating}"
+                #end
             elsif input == "list"
                 list_plants
             elsif input == "exit"

@@ -17,10 +17,10 @@ class Plant
         end
     end
 
-    def add_plant_attributes(plant_attributes_hash)
-        @quick_info = plant_attributes_hash[:quick_info]
-        @description = plant_attributes_hash[:description]
-        @rating = plant_attributes_hash[:rating]
+    def plant_attributes(plant_attributes_array)
+        @quick_info = plant_attributes_array[:quick_info]
+        @description = plant_attributes_array[:description]
+        @rating = plant_attributes_array[:rating]
     end
 
     def self.all
