@@ -7,7 +7,7 @@ class Scraper
 
     @@all = []
 
-    def self.scrape_list_page(list_url)
+    def self.scrape_list_page
         plants = []
         list_url = "https://www.aquariumcoop.com/collections/live-plants"
         html = open(list_url)
@@ -22,17 +22,15 @@ class Scraper
     end
 
     def self.scrape_product_page(product_url)
-        plant_page = []
+        plant_page = {}
                #html = open(product_url)
         product_page = Nokogiri::HTML(open(product_url))
 
-        product_page.css("div.product-template__container page-width").each do |plant|
-            plant_page << {
-                quick_info: product_page.css("div.first_description").css("ul").text,
-                description: product_page.css("div.second_description").text.strip,
-                rating: product_page.css("div.product-single__meta").css("div.jdgm-prev-badge").attribute("data-average-rating").value
+            plant_page = {
+        quick_info: product_page.css("div.first_description").css("ul").text,
+        description: product_page.css("div.second_description").text.strip,
+        rating: product_page.css("div.product-single__meta").css("div.jdgm-prev-badge").attribute("data-average-rating").value
             }
-        end
         plant_page
     end
 end
