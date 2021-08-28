@@ -13,7 +13,6 @@ class CLI #AquariumPlantGuide::CLI
     end
 
     def list_plants
-
         if Plant.all.empty?
             Plant.create_from_list(Scraper.scrape_list_page)
 
@@ -43,7 +42,7 @@ class CLI #AquariumPlantGuide::CLI
         puts "Name:" + "#{plant.name}\n\n"
         puts "Quick Info:" + "#{plant.quick_info}\n"
         puts "Description:" + "#{plant.description}\n\n"
-        puts "Rating:" + "#{plant.rating}\n\n"
+        puts "Rating:" + "#{plant.rating} / 5\n\n"
     end 
 
     def list_options
