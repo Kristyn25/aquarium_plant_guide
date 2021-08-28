@@ -1,34 +1,15 @@
 # AquariumPlantGuide
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/aquarium_plant_guide`. To experiment with that code, run `bin/console` for an interactive prompt.
-
 This gem gives you access to a list of aquarium plants and allows you to view a description and the rating of each plant.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'aquarium_plant_guide'
-```
-
-And then execute:
-
-    $ bundle install
-
-Or install it yourself as:
-
-    $ gem install aquarium_plant_guide
+From Github, fork and clone this repository: git@github.com:Kristyn25/aquarium_plant_guide.git
+Then run the program using: ./bin/aquarium_plant_guide
 
 ## Usage
 
 This program starts by displaying a numbered list of aquarium plants. The user then enters a number from the list and presses enter to see a discription and the rating for each plant. The user can also type list and press enter to display the list again, or the user can type exit and press enter to exit the program.
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and the created tag, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
