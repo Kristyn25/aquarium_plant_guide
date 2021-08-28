@@ -8,16 +8,17 @@ class CLI #AquariumPlantGuide::CLI
     def start
         puts "Welcome to the Aquarium Plant Guide"
         list_plants
-        #list_options
         plant_attributes
         list_options
-        display_plant_info
-        exit_program
     end
 
     def list_plants
-        plants_array = Scraper.scrape_list_page
-        Plant.create_from_list(plants_array)
+
+        if Plant.all.empty?
+            Plant.create_from_list(Scraper.scrape_list_page)
+
+        end
+
         Plant.all.each.with_index(1) do |plant, index|
             puts "#{index}. #{plant.name}"
         end
@@ -38,10 +39,11 @@ class CLI #AquariumPlantGuide::CLI
         user_input.to_i
         index = input_to_index(user_input)
         plant = Plant.all[index]
-            
-        puts "Quick Info:" + "#{plant.quick_info}"
-        puts "Description:" + "#{plant.description}"
-        puts "Rating:" + "#{plant.rating}"
+        
+        puts "Name:" + "#{plant.name}\n\n"
+        puts "Quick Info:" + "#{plant.quick_info}\n"
+        puts "Description:" + "#{plant.description}\n\n"
+        puts "Rating:" + "#{plant.rating}\n\n"
     end 
 
     def list_options
@@ -51,9 +53,9 @@ class CLI #AquariumPlantGuide::CLI
                     
             if user_input.to_i != 0
                 display_plant_info(user_input)
-            elsif input == "list"
+            elsif user_input == "list"
                 list_plants
-            elsif input == "exit"
+            elsif user_input == "exit"
                 exit_program
             else
                  puts "I am not sure what you are looking for."

@@ -2,7 +2,7 @@
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/aquarium_plant_guide`. To experiment with that code, run `bin/console` for an interactive prompt.
 
-TODO: This gem gives you access to a list of aquarium plants and allows you to view a description of each plant.
+This gem gives you access to a list of aquarium plants and allows you to view a description and the rating of each plant.
 
 ## Installation
 
@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This program starts by displaying a numbered list of aquarium plants. The user then enters a number from the list and presses enter to see a discription and the rating for each plant. The user can also type list and press enter to display the list again, or the user can type exit and press enter to exit the program.
 
 ## Development
 

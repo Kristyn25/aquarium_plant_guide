@@ -23,7 +23,7 @@ class Scraper
 
     def self.scrape_product_page(product_url)
         plant_page = {}
-               #html = open(product_url)
+
         product_page = Nokogiri::HTML(open(product_url))
 
             plant_page = {
